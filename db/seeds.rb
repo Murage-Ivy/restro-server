@@ -50,19 +50,19 @@ Restaurant.create(name: "Kilimanjaro Jamia",
 puts "🥘🥘 seeding!!"
 
 Food.create(name: Faker::Food.dish,
-            restaurant_id: Restaurant.all.sample.id,
+            restaurant_id: Restaurant.order('RANDOM()').first.id,
             price: rand(5..20),
             rating: rand(0..5),
             image_url: "https://img.freepik.com/free-photo/delicious-fried-chicken-plate_144627-27383.jpg?w=740&t=st=1669740082~exp=1669740682~hmac=f33a3ae6a83cab04fade4b1e4401572049d549905228ef5b6a1203455e193027")
 
 Food.create(name: Faker::Food.dish,
-            restaurant_id: Restaurant.all.sample.id,
+            restaurant_id: Restaurant.order('RANDOM()').first.id,
             price: rand(5..20),
             rating: rand(0..5),
             image_url: "https://img.freepik.com/free-photo/top-view-vegetable-soup-with-meat-inside-plate-grey_140725-36040.jpg?w=740&t=st=1669740186~exp=1669740786~hmac=8c26098b71cd266bfeee3fedafdc3b162f07a25d9292ad9ae0e76c51f0b673d7")
 
 Food.create(name: Faker::Food.dish,
-            restaurant_id: Restaurant.all.sample.id,
+            restaurant_id: Restaurant.order('RANDOM()').first.id,
             price: rand(5..20),
             rating: rand(0..5),
             image_url: "https://img.freepik.com/free-photo/baked-chicken-wings-asian-style-tomatoes-sauce-plate_2829-10657.jpg?w=740&t=st=1669740224~exp=1669740824~hmac=9f60a170cde02b2a689a72c91d27177e7d2c2d71b39b23f3e5874e04502a5229")
