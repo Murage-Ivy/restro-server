@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  validates :comment, length: { minimum: 100 }
+  validates :comment, presence: true, length: { maximum: 200 }
   belongs_to :restaurant
   belongs_to :user
 end
