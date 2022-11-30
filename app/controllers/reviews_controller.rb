@@ -8,8 +8,10 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    byebug
+    # byebug
     review = find_review
+    review.update!(review_params)
+    render json: review, status: :accepted
   end
 
   def destroy
