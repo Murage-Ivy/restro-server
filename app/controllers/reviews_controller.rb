@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    review = Review.create!(review_params)
+    review = @current_user.reviews.create!(review_params)
     render json: review, status: :created
   end
 
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.permit(:title, :comment, :user_id, :restaurant_id)
+    params.permit(:title, :comment, :restaurant_id)
   end
 
   def render_unprocessable_entity_response(invalid)

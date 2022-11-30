@@ -93,11 +93,11 @@ Food.create(name: Faker::Food.dish,
 
 puts "⭐⭐ seeding!!"
 
-10.times do
-  Review.create(title: Faker::Lorem.sentence,
-                comment: Faker::Restaurant.review,
-                restaurant_id: Restaurant.all.sample.id,
-                user_id: User.all.sample.id)
-end
+# 10.times do
+#   Review.create(title: Faker::Lorem.sentence,
+#                 comment: Faker::Restaurant.review,
+#                 restaurant_id: Restaurant.all.sample.id,
+#                 user_id: User.all.sample.id)
+# end
 
 puts "✅✅ done!!"
