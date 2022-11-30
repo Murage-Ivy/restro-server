@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+  skip_before_action :authorized, only: [:index]
+
+  def index
+    render json: Review.all
+  end
 
   def create
     review = Review.create!(review_params)
@@ -8,7 +13,6 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    # byebug
     review = find_review
     review.update!(review_params)
     render json: review, status: :accepted
