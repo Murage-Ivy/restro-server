@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   skip_before_action :authorized, only: [:index]
+  wrap_parameters format: []
 
   def index
     render json: Review.all
@@ -9,7 +10,7 @@ class ReviewsController < ApplicationController
 
   def create
     review = @current_user.reviews.create!(review_params)
-    render json: review, status: :created
+    render json: review, serializer: ReviewSerializer, status: :created
   end
 
   def update
