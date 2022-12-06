@@ -2,14 +2,10 @@ class ReviewsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   skip_before_action :authorized, only: [:index]
+  before_action :authorized
   wrap_parameters format: []
 
   def index
-    # if params[:dog_house_id]
-    #   dog_house = DogHouse.find(params[:dog_house_id])
-    #   reviews = dog_house.reviews
-    # else
-    #   reviews = Review.all
     if params[:restaurant_id]
       restaurant = Restaurant.find(params[:restaurant_id])
       reviews = restaurant.reviews
