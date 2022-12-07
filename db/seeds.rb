@@ -4,10 +4,12 @@ puts "🧑🧑 Seeding"
 
 User.create(username: Faker::Name.middle_name,
             password: "123",
+            password_confirmation: "123",
             image_url: user_image_urls.sample)
 
 User.create(username: Faker::Name.middle_name,
             password: "123",
+            password_confirmation: "123",
             image_url: user_image_urls.sample)
 
 puts "🍟🍟 Seeding!!"
@@ -18,6 +20,12 @@ Restaurant.create(name: "Cj's",
                   like: false,
                   description: Faker::Restaurant.description,
                   image_url: "https://media-cdn.tripadvisor.com/media/photo-s/12/ba/6c/44/chicken-fajita-signature.jpg")
+3.times do
+  Review.create(title: Faker::Lorem.sentence,
+                comment: Faker::Restaurant.review,
+                restaurant_id: 1,
+                user_id: User.all.sample.id)
+end
 
 Food.create(name: Faker::Food.dish,
             restaurant_id: 1,
@@ -49,12 +57,6 @@ Food.create(name: Faker::Food.dish,
 
 Food.create(name: Faker::Food.dish,
             restaurant_id: 1,
-            price: rand(5..20),
-            rating: rand(1..5),
-            image_url: "https://img.freepik.com/free-photo/side-view-doner-with-grilled-chicken-greens-lettuce-tomato-french-fries-table_141793-4881.jpg?w=740&t=st=1669740284~exp=1669740884~hmac=08a438dfb0d62826bb10afee2078dbc7434f75c3580b08fbeddd2bec3b2b65d8")
-
-Food.create(name: Faker::Food.dish,
-            restaurant_id: 1,
             description: Faker::Lorem.sentence,
             price: rand(5..20),
             rating: rand(1..5),
@@ -75,6 +77,12 @@ Restaurant.create(name: "ArtCaffe",
                   description: Faker::Restaurant.description,
                   image_url: "https://img.freepik.com/free-photo/banquet-table-with-snacks_144627-18361.jpg?w=740&t=st=1670329963~exp=1670330563~hmac=7bbb7233d5a0d02b85d79240b7c78597534c68b7e6671c39c6cfce6bef4a9f9e")
 
+3.times do
+  Review.create(title: Faker::Lorem.sentence,
+                comment: Faker::Restaurant.review,
+                restaurant_id: 2,
+                user_id: User.all.sample.id)
+end
 Food.create(name: "Pancake With Sliced Strawberry",
             description: "Light and fluffy strawberry pancakes packed with flavor",
             restaurant_id: 2,
@@ -101,21 +109,21 @@ Food.create(name: "Capuccino Coffee",
             restaurant_id: 2,
             price: rand(5..20),
             rating: rand(1..5),
-            image_url: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+            image_url: "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 
 Food.create(name: "Lime Cocktail",
             description: " LIme Cocktail with gin, Aperol, lime juice, and simple syrup",
             restaurant_id: 2,
             price: rand(5..20),
             rating: rand(1..5),
-            image_url: "https://images.pexels.com/photos/1187766/pexels-photo-1187766.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+            image_url: "https://images.pexels.com/photos/128242/pexels-photo-128242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 
 Food.create(name: "Cup Tea",
             description: " Black With Vanilla, Creamy Caramel",
             restaurant_id: 2,
             price: rand(5..20),
             rating: rand(1..5),
-            image_url: "https://images.pexels.com/photos/842544/pexels-photo-842544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+            image_url: "https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 
 # Lord Eroll's food
 Restaurant.create(name: "The Lord Eroll's",
@@ -125,6 +133,12 @@ Restaurant.create(name: "The Lord Eroll's",
                   description: Faker::Restaurant.description,
                   image_url: "https://media-cdn.tripadvisor.com/media/photo-s/11/13/a3/80/idina-east-terrace-at.jpg")
 
+3.times do
+  Review.create(title: Faker::Lorem.sentence,
+                comment: Faker::Restaurant.review,
+                restaurant_id: 3,
+                user_id: User.all.sample.id)
+end
 Food.create(name: Faker::Food.dish,
             restaurant_id: 3,
             description: Faker::Lorem.sentence,
@@ -167,13 +181,6 @@ Food.create(name: Faker::Food.dish,
             rating: rand(1..5),
             image_url: "https://img.freepik.com/free-photo/sausage-fried-rice-with-tomatoes-carrots-shiitake-mushrooms-plate_1150-27184.jpg?w=740&t=st=1669740324~exp=1669740924~hmac=10106c369675c40d34982da397c96b4e39a71b076767c8c43fe3e4bf6add9453")
 
-Food.create(name: Faker::Food.dish,
-            restaurant_id: 3,
-            price: rand(5..20),
-            description: Faker::Lorem.sentence,
-            rating: rand(1..5),
-            image_url: "https://img.freepik.com/free-photo/front-view-burger-fries-plate_23-2148784444.jpg?w=740&t=st=1669740363~exp=1669740963~hmac=a0970b47b9fbfffd7903b9a1b2b51152841df13771cbbd2dbad8474228659e79")
-
 # Harvest foods
 Restaurant.create(name: "Harvest Restaurant",
                   address: "Nairobi, Kenya",
@@ -181,6 +188,14 @@ Restaurant.create(name: "Harvest Restaurant",
                   like: false,
                   description: Faker::Restaurant.description,
                   image_url: "https://media-cdn.tripadvisor.com/media/photo-s/22/17/05/8c/mama-harvest-welcomes.jpg")
+
+3.times do
+  Review.create(title: Faker::Lorem.sentence,
+                comment: Faker::Restaurant.review,
+                restaurant_id: 4,
+                user_id: User.all.sample.id)
+end
+
 Food.create(name: Faker::Food.dish,
             restaurant_id: 4,
             description: Faker::Lorem.sentence,
@@ -230,6 +245,13 @@ Restaurant.create(name: "Kilimanjaro Jamia",
                   description: Faker::Restaurant.description,
                   image_url: "https://pbs.twimg.com/media/EzzOB3IXsAQmoMG.jpg")
 
+3.times do
+  Review.create(title: Faker::Lorem.sentence,
+                comment: Faker::Restaurant.review,
+                restaurant_id: 5,
+                user_id: User.all.sample.id)
+end
+
 Food.create(name: Faker::Food.dish,
             restaurant_id: 5,
             description: Faker::Lorem.sentence,
@@ -260,6 +282,7 @@ Food.create(name: Faker::Food.dish,
 
 Food.create(name: Faker::Food.dish,
             restaurant_id: 5,
+            description: Faker::Lorem.sentence,
             price: rand(5..20),
             rating: rand(1..5),
             image_url: "https://img.freepik.com/free-photo/sausage-fried-rice-with-tomatoes-carrots-shiitake-mushrooms-plate_1150-27184.jpg?w=740&t=st=1669740324~exp=1669740924~hmac=10106c369675c40d34982da397c96b4e39a71b076767c8c43fe3e4bf6add9453")
@@ -273,12 +296,5 @@ Food.create(name: Faker::Food.dish,
 puts "🥘🥘 seeding!!"
 
 puts "⭐⭐ seeding!!"
-
-# 10.times do
-#   Review.create(title: Faker::Lorem.sentence,
-#                 comment: Faker::Restaurant.review,
-#                 restaurant_id: 3,
-#                 user_id: User.all.sample.id)
-# end
 
 puts "✅✅ done!!"
