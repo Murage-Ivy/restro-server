@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    review = @current_user.reviews.create!(review_params)
+    review = reviews.create!(review_params)
     render json: review, serializer: ReviewSerializer, status: :created
   end
 
